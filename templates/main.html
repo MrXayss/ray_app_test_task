@@ -1,0 +1,42 @@
+{% extends 'includes/base_affter_auth.html' %}
+{% block content %}
+<table class="table table-hover" data-toggle="table" data-search="true">
+    <thead>
+      <tr>
+        <th scope="col">ID</th>
+        <th scope="col">Имя</th>
+        <th scope="col">Возраст</th>
+        <th scope="col">Дата рождения</th>
+        <th scope="col">Место рождения</th>
+        <th scope="col"></th>
+      </tr>
+    </thead>
+    <tbody>
+    {% for obj in data %}
+    <tr>
+      <th>{{ obj.id }}</th>
+      <td>{{obj.name}}</td>
+      <td>{{obj.age}}</td>
+      <td>{{obj.birth}}</td>
+      <td>{{obj.place_birth}}</td>
+      <td>
+        <a class="btn btn-info" href="{% url 'edit' obj.id%}">Изменить</a>
+        <a class="btn btn-danger" href="{% url 'delete' obj.id%}">Удалить</a>
+      </td>
+    </tr>
+    {% endfor %}
+    </tbody>
+  </table>
+  <div class="container" style="margin-top:40px;">
+    <div class="row justify-content-center">
+        <div class="col-md-5">
+          <div class="card w-50">
+            <div class="card-body">
+              <h5 class="card-title">Погода в {{weather.city}}</h5>
+              <p class="card-text">Температура: {{ weather.temperature }}°C, {{ weather.description }}</p>
+            </div>
+          </div>
+        </div>
+    </div>
+  </div>
+{% endblock %}

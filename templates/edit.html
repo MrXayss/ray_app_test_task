@@ -1,0 +1,32 @@
+{% extends 'includes/base_affter_auth.html' %}
+{% block content %}
+<div class="d-flex justify-content-center align-items-center" style="height: 80vh;">
+    <form method="post">
+        {% csrf_token %}
+        <div style="width: 300px;">
+            <table>
+                <tr>
+                    <td><label for="name">Имя: </label></td>
+                    <td><input type="text" class="form-control"  id="name" name="name" placeholder="Введите имя"  value="{{data.name}}" required></td>
+                </tr>
+                <tr>
+                    <td><label for="age">Возраст: </label></td>
+                    <td><input type="number" class="form-control" id="age" name="age" placeholder="Введите возвраст" value="{{data.age}}" required></td>
+                </tr>
+                <tr>
+                    <td><label for="birth">Дата рождения: </label></td>
+                    <td><input type="date" class="form-control" name="birth" id="birth" value="{{data.birth | date:'Y-m-d'}}" required></td>
+                </tr>
+                <tr>
+                    <td><label for="place_birth">Место рождения: </label></td>
+                    <td><input type="text" class="form-control" name="place_birth" id="place_birth" placeholder="Введите место рождения" value="{{data.place_birth}}" required></td>
+                </tr>
+                <tr>
+                    <td></td>
+                    <td><button type="submit" class="btn btn-success">Изменить</button></td>
+                </tr>
+            </table>
+        </div>
+    </form>
+</div>
+{% endblock %}

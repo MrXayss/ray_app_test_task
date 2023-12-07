@@ -1,0 +1,16 @@
+{% extends 'includes/base_affter_auth.html' %}
+{% block content %}
+<div class="d-flex justify-content-center align-items-center" style="height: 80vh;">
+    <form method="post">
+        {% csrf_token %}
+        <div style="width: 300px;" class="row gy-3 text-center">
+            <input type="text" class="form-control" name="name" placeholder="Введите имя" required>
+            <input type="number" class="form-control" name="age" placeholder="Введите возвраст" required>
+            <label for="birth">Введите дату рождения</label>
+            <input type="date" class="form-control" name="birth" id="birth" required>
+            <input type="text" class="form-control" name="place_birth" placeholder="Введите место рождения" required>
+            <button type="submit" class="btn btn-success">Создать</button>
+        </div>
+    </form>
+</div>
+  {% endblock %}

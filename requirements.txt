@@ -1,0 +1,6 @@
+django==4.2.7
+asyncio==3.4.3
+aiohttp==3.9.1
+django-crontab==0.7.1
+apscheduler==3.10.4
+coverage==7.3.2

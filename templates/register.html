@@ -1,0 +1,40 @@
+{% extends 'includes/base.html' %}
+{% block content %}
+<div style="margin-top:300px;">
+<div class="container">
+    <div class="row justify-content-center">
+        <div class="col-md-6">
+            <form method="post">
+                {% csrf_token %}
+                {{ form.username.label_tag }}
+                <input type="text" name="{{ form.username.name }}" class="form-control" required id="{{ form.username.id_for_label }}" />
+                {% if form.username.errors %}
+                    <div class="alert alert-danger">
+                        {{ form.username.errors }}
+                    </div>
+                {% endif %}
+
+                {{ form.password1.label_tag }}
+                <input type="password" name="{{ form.password1.name }}" class="form-control" required id="{{ form.password1.id_for_label }}" />
+                {% if form.password1.errors %}
+                    <div class="alert alert-danger">
+                        {{ form.password1.errors }}
+                    </div>
+                {% endif %}
+
+                {{ form.password2.label_tag }}
+                <input type="password" name="{{ form.password2.name }}" class="form-control" required id="{{ form.password2.id_for_label }}" />
+                {% if form.password2.errors %}
+                    <div class="alert alert-danger">
+                        {{ form.password2.errors }}
+                    </div>
+                {% endif %}
+                <div style="text-align: center;">
+                    <button type="submit" class="btn btn-primary">Зарегистрироваться</button>
+                </div>
+            </form>
+        </div>
+    </div>
+</div>
+</div>
+{% endblock %}
